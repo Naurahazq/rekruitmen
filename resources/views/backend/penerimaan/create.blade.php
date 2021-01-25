@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card border-0 shadow">
                 <div class="card-body">
-                <form action="{{route('penerimaan.create')}}">
-
+                <form action="{{route('penerimaan.store')}}" method="POST">
+                @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -18,7 +18,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">No Test</label>
-                                <input type="" name="n0_test" class="form-control" id="">
+                                <input type="" name="no_test" class="form-control" id="">
                             </div>
                         </div>
                         <div class="col-md-6">

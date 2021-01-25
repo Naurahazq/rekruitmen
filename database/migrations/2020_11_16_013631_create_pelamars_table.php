@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePenerimaanTable extends Migration
+class CreatePelamarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreatePenerimaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('penerimaan', function (Blueprint $table) {
+        Schema::create('pelamars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('no_penerimaan');
             $table->string('no_test');
             $table->string('nama');
-            $table->string('nilai');
-            $table->string('status');
+            $table->string('alamat');
+            $table->string('pendidikan_terakhir');
+            $table->string('telp');
+            $table->string('jp');
+            $table->string('agama');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreatePenerimaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penerimaan');
+        Schema::dropIfExists('pelamars');
     }
 }

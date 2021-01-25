@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card border-0 shadow">
                 <div class="card-body">
-                <form action="{{route('bagian.create')}}">
-
+                <form action="{{route('bagian.store')}}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

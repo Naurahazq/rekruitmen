@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card border-0 shadow">
                 <div class="card-body">
-                <form action="{{route('pelamar.create')}}">
-
+                <form action="{{route('pelamar.store')}}" method="POST">
+                @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
