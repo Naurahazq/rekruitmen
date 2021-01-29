@@ -9,8 +9,9 @@
                     <h4 class="font-weight-bold">Data Pengguna</h4>
                     <a href="{{route('pengguna.create')}}" class="btn btn-warning">Tambah Pengguna</a>
                 </div>
+                
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Kode Pegawai</th>
@@ -30,8 +31,13 @@
                                     <td>{{$pengguna->username}}</td>
                                     <td>{{$pengguna->bagian}}</td>
                                     <td>
-                                        <a href="" class="btn btn-outline-primary btn-sm">Detail</a>
-                                        <a href="" class="btn btn-outline-danger btn-sm">Hapus</a>
+                                    <form action="{{route('pengguna.delete', $pengguna->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                                <a href="{{route('pengguna.edit', $pengguna->id)}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                                                <a href="{{route('pengguna.show', $pengguna->id)}}" class="btn btn-outline-success btn-sm">Show</a>
+                                                <button href="" class="btn btn-outline-danger btn-sm">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

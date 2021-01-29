@@ -10,11 +10,12 @@
                     <a href="{{route('bagian.create')}}" class="btn btn-outline-primary">Tambah Bagian</a>
                 </div>
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Kode Bagian</th>
                                     <th>Nama Departement</th>
+                                    <th>Kepala Bagian</th>
                                     <th>Lokasi</th>
                                     <th>Option</th>
                                 </tr>
@@ -24,12 +25,19 @@
                                 <tr>
                                     <td>{{$bagian->kode_bagian}}</td>
                                     <td>{{$bagian->nama_departement}}</td>
+                                    <td>{{$bagian->kepala_bagian}}</td>
                                     <td>{{$bagian->lokasi}}</td>
 
                                     <td>
-                                        <a href="" class="btn btn-outline-primary btn-sm">Detail</a>
-                                        <a href="" class="btn btn-outline-danger btn-sm">Hapus</a>
+                                        <form action="{{route('bagian.delete', $bagian->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                                <a href="{{route('bagian.edit', $bagian->id)}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                                                <a href="{{route('bagian.show', $bagian->id)}}" class="btn btn-outline-success btn-sm">Show</a>
+                                                <button href="" class="btn btn-outline-danger btn-sm">Hapus</button>
+                                        </form>
                                     </td>
+                                    
                                 </tr>
                                 @endforeach
                             </tbody>

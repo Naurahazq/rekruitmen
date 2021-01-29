@@ -10,7 +10,7 @@
                     <a href="{{route('pelamar.create')}}" class="btn btn-warning">Tambah Pelamar</a>
                 </div>
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>No Test</th>
@@ -30,9 +30,14 @@
                                 <td>{{$pelamar->pendidikan_terakhir}}</td>
                                 <td>{{$pelamar->telp}}</td>
                                 <td>
-                                    <a href="" class="btn btn-outline-primary btn-sm">Detail</a>
-                                    <a href="" class="btn btn-outline-danger btn-sm">Hapus</a>
-                                </td>
+                                    <form action="{{route('pelamar.delete', $pelamar->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                            <a href="{{route('pelamar.edit', $pelamar->id)}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                                            <a href="{{route('pelamar.show', $pelamar->id)}}" class="btn btn-outline-success btn-sm">Show</a>
+                                            <button href="" class="btn btn-outline-danger btn-sm">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

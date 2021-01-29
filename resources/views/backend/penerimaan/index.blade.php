@@ -10,7 +10,7 @@
                     <a href="{{route('penerimaan.create')}}" class="btn btn-warning">Tambah Data</a>
                 </div>
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>No Penerimaan</th>
@@ -30,8 +30,13 @@
                                 <td>{{$penerimaan->nilai}}</td>
                                 <td>{{$penerimaan->status}}</td>
                                 <td>
-                                    <a href="" class="btn btn-outline-primary btn-sm">Detail</a>
-                                    <a href="" class="btn btn-outline-danger btn-sm">Hapus</a>
+                                    <form action="{{route('penerimaan.delete', $penerimaan->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                                <a href="{{route('penerimaan.edit', $penerimaan->id)}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                                                <a href="{{route('penerimaan.show', $penerimaan->id)}}" class="btn btn-outline-success btn-sm">Show</a>
+                                                <button href="" class="btn btn-outline-danger btn-sm">Hapus</button>
+                                        </form>
                                 </td>
                             </tr>
                             @endforeach
